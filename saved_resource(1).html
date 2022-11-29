@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://solocode.azurewebsites.net/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>window.onerror=function(e,t,n,a,o){return console.error(o),!0};window.SL={exitedLoop:function(e){this.CodeTimer.exitedLoop(e)},shouldStopExecution:function(e){var t=this.CodeTimer.shouldStopLoop(e);return!0===t&&console.warn("Execution stopped as an infinite loop was detected."),t},CodeTimer:{programNoLongerBeingMonitored:!1,timeOfFirstCallToShouldStopLoop:0,loopExits:{},loopTimers:{},START_MONITORING_AFTER:2e3,STOP_ALL_MONITORING_TIMEOUT:5e3,MAX_TIME_IN_LOOP_WO_EXIT:2200,exitedLoop:function(e){this.loopExits[e]=!0},shouldStopLoop:function(e){if(this.programKilledSoStopMonitoring)return!0;if(this.programNoLongerBeingMonitored)return!1;if(this.loopExits[e])return!1;var t=this.getTime();if(0===this.timeOfFirstCallToShouldStopLoop)return this.timeOfFirstCallToShouldStopLoop=t,!1;var n=t-this.timeOfFirstCallToShouldStopLoop;if(n<this.START_MONITORING_AFTER)return!1;if(n>this.STOP_ALL_MONITORING_TIMEOUT)return this.programNoLongerBeingMonitored=!0,!1;try{this.checkOnInfiniteLoop(e,t)}catch(e){return this.sendErrorMessageToEditor(),this.programKilledSoStopMonitoring=!0,!0}return!1},sendErrorMessageToEditor:function(){try{if(this.shouldPostMessage()){var e={action:"infinite-loop",line:this.findAroundLineNumber()};parent.postMessage(JSON.stringify(e),"*")}else this.throwAnErrorToStopCode()}catch(e){this.throwAnErrorToStopCode()}},shouldPostMessage:function(){return document.location.href.match(/boomerang/)},throwAnErrorToStopCode:function(){throw new Error("Execution stopped as an infinite loop was detected.")},findAroundLineNumber:function(){var e=new Error,t=0;if(e.stack){var n=e.stack.match(/boomerang\S+:(\d+):\d+/);n&&(t=+n[1])}return t},checkOnInfiniteLoop:function(e,t){if(!this.loopTimers[e])return this.loopTimers[e]=t,!1;if(t-this.loopTimers[e]>this.MAX_TIME_IN_LOOP_WO_EXIT)throw new Error("Execution stopped as an infinite loop was detected.");return!0},getTime:function(){return+new Date}}};</script><style>@import url("https://fonts.googleapis.com/css?family=Shadows+Into+Light");
+@import url("https://fonts.googleapis.com/css?family=Poiret+One");
+body {
+  
+  text-align:center; 
+  background-color:black;
+  text-transform:capitalize;
+  font-family: 'Shadows Into Light'; cursive, sans-serif;
+}
+
+#rgb {
+    width:auto;
+    height:auto;
+    border-style:solid;
+    border-width:3 px;
+    border-radius:200px;
+    border-color:black;
+    background-color:#ffffff;
+    font-family: 'Poiret One', bold, sans-serif;
+}
+
+h3 {
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.ddg{
+   width:30%;
+   font-weight: bold;
+   //float:right; 
+   background-color:#FFFFFF;
+   padding-left:5px;
+   padding-right:5px;
+   margin:20px;
+   border-radius:90%;
+   margin-right:auto;
+   margin-left:auto;
+}
+.space {
+   width:90% ; 
+   height:auto ;
+   font-family: 'Poiret One', cursive, sans-serif;
+}
+#red  {
+    -webkit-appearance: none !important;
+    background:red;
+    height:5px;
+    border-style:solid;
+    border-width:1 px;
+    border-radius:200px;
+    border-color:black;
+}
+#green  {
+    -webkit-appearance: none !important;
+    background:green;
+    height:5px;
+    border-style:solid;
+    border-width:1 px;
+    border-radius:200px;
+    border-color:black;
+}
+#blue  {
+    -webkit-appearance: none !important;
+    background:blue;
+    height:5px;
+    border-style:solid;
+    border-width:1 px;
+    border-radius:200px;
+    border-color:black;
+}
+a {
+    color: white;
+}
+     </style>
+        <title>COLOR PICKER</title>
+    </head>
+    <body data-new-gr-c-s-check-loaded="14.1087.0" data-gr-ext-installed="" style="background-color: rgb(141, 151, 149);">
+       
+        <div id="rgb" onclick="getYourColor()"><h2>#8D9795</h2></div>
+       
+        
+
+        <div class="ddg" id="divRed" style="color: rgb(255, 255, 255); background-color: rgb(114, 151, 149);" onclick="input(x,r)">RED = 141</div>
+        <input type="range" class="space" id="red" min="0" max="255" step="1" value="0" onchange="getColor()">
+        <div class="ddg" id="divGreen" style="color: rgb(255, 255, 255); background-color: rgb(141, 104, 149);" onclick="input(y,g)">GREEN = 151</div>
+         <input type="range" class="space" id="green" min="0" max="255" step="1" value="0" onchange="getColor()">
+         <div class="ddg" id="divBlue" style="color: rgb(255, 255, 255); background-color: rgb(141, 151, 106);" onclick="input(z,b)">BLUE = 149</div>
+         <input type="range" class="space" id="blue" min="0" max="255" step="1" value="0" onchange="getColor()">
+         
+     
+         
+    <script>alert("Thank you for upvoting this code.\n");
+var x = 0, y = 0, z =0 ,color, r = "RED" ,g = "GREEN ", b = "BLUE ";
+
+function getColor(){
+x = document.getElementById("red").value;
+document.getElementById("divRed").innerHTML = 'RED = '+x;
+y = document.getElementById("green").value;
+document.getElementById("divGreen").innerHTML = 'GREEN = '+y;
+z = document.getElementById("blue").value;
+document.getElementById("divBlue").innerHTML = 'BLUE = '+z;
+var color = rgbToHex(x,y,z);
+color = "#"+color;
+document.body.style.backgroundColor = color;
+document.getElementsByTagName("h2")[0].innerHTML = color;
+var newColor0 = rgbToHex(255-x,y,z);
+newColor0 = "#"+newColor0;
+var newColor1 = rgbToHex(x,255-y,z);
+newColor1 = "#"+newColor1;
+var newColor2 = rgbToHex(x,y,255-z);
+newColor2 = "#"+newColor2;
+var dac  = document.getElementsByClassName("ddg");
+dac[0].style.backgroundColor = newColor0 ;
+dac[0].style.color ="#ffffff";
+dac[1].style.backgroundColor = newColor1;
+dac[1].style.color ="#ffffff";
+dac[2].style.backgroundColor = newColor2;
+dac[2].style.color ="#ffffff";
+}
+
+function rgbToHex(R,G,B) {
+return toHex(R)+toHex(G)+toHex(B)
+}
+
+function toHex(n) {
+ n = parseInt(n,10);
+ if (isNaN(n)) return "00";
+ n = Math.max(0,Math.min(n,255));
+ return "0123456789ABCDEF".charAt((n-n%16)/16)
+      + "0123456789ABCDEF".charAt(n%16);
+}
+function getYourColor(){
+your_color=document.getElementById("rgb").childNodes[0].innerHTML;
+  alert("Your color is "+your_color);
+} 
+
+function input(promptColor,colorNow){
+    alert(colorNow+" is set now "+promptColor);
+    promptColor = prompt(" How much "+colorNow+" do you need for your color?\n          Insert a number from 0 to 255\n\n           <<<not available for the moment>>>");
+    }</script>
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
